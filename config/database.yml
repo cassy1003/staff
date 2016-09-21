@@ -1,21 +1,23 @@
 default: &default
   adapter: postgresql
   encode: unicode
-  username: db
-  password: password
+  username: postgres
+  password: ''
   host: 0.0.0.0
 
 development:
   <<: *default
-  database: db_development
+  database: postgres
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db_test
+  database: postgres
+  #database: db_test
 
 production:
   <<: *default
-  database: db_production
+  database: postrgres
+  #database: db_production
