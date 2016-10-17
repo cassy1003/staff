@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EneProfile</title>
+    <title>さぁーち。</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <a href="/" class="logo"></a>
+      <div class="site_title beta">さぁーち。</div>
+    </div>
+    <% if controller.controller_name != 'sessions' %>
+      <%= render 'layouts/side_nav' %>
+    <% end %>
+    <div class="main">
+      <%= yield %>
+    </div>
   </body>
 </html>

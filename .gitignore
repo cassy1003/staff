@@ -20,3 +20,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# the other file
+google_auth.json
+lib/assets/staffs.csv

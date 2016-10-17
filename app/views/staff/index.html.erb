@@ -1,0 +1,44 @@
+<div class="staff_info">
+  <div class="id">
+    <span>社員番号: <%= @staff[:id] %></span>
+  </div>
+  <div class="name">
+    <span>
+    <%= @staff[:firstname][:en] %> <%= @staff[:familyname][:en] %>
+    <% if @staff[:familyname][:jp] %>(<%= @staff[:familyname][:jp] %> <%= @staff[:firstname][:jp] %>)<% end %>
+    </span>
+  </div>
+  <div class="roll"><span><%= @staff[:roll] %></span></div>
+  <% if @staff[:image].present? %>
+    <div class="image">
+      <img src="http://enechange.co.jp/image/pc__staff_photo_<%= @staff[:image] %>.jpg">
+    </div>
+  <% end %>
+  <% if @staff[:about].present? %>
+    <div class="about">
+      <p <% if strip_tags(@staff[:about]).length > 240 %>class="sm"<% end %>><%= raw @staff[:about] %></p>
+    </div>
+  <% end %>
+  <% if @staff[:strength_finder][0].present? %>
+    <div class="strength_finder">
+      <ul>
+        <% @staff[:strength_finder].each do |sf| %>
+          <li><%= sf %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @staff[:comment].present? %>
+    <div class="comment">
+      <p><%= raw @staff[:comment] %></p>
+    </div>
+  <% end %>
+  <% if @staff[:slide].present? %>
+    <div class="slide_btn loading">
+      <%= fa_icon 'file-powerpoint-o' %>
+    </div>
+    <div class="slide">
+      <iframe id="slide_frame" src="<%= @staff[:slide] %>" frameborder="0" width="700" height="423"></iframe>
+    </div>
+  <% end %>
+</div>

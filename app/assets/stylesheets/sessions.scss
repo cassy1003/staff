@@ -1,0 +1,22 @@
+
+.login_form {
+  margin: 50px;
+  form {
+    width: 200px;
+  }
+  p {
+    margin-bottom: 10px;
+    input {
+      width: 193px;
+      &[type=submit] {
+        width: 200px;
+        background: #ff8600;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+  .notice {
+    color: red;
+  }
+}

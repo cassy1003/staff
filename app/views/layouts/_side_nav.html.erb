@@ -1,0 +1,43 @@
+<div class="side_nav">
+  <div class="search">
+    <input type="text" placeholder="検索したい名前を入力" name="input">
+    <div class="other_query">
+      <div class="btn">
+        <a class="show_btn">他の条件を指定</a>
+        <a class="hide_btn">他の条件を解除</a>
+      </div>
+      <div class="queries">
+        <div class="select_group">
+          <select name="strength_finder">
+            <option value=":">Strength Finder (未選択)</option>
+            <% @strength_finders.each do |sf| %>
+              <option value="<%= sf %>"><%= sf %></option>
+            <% end %>
+          </select>
+        </div>
+        <!--
+        <div class="select_group">
+          <select name="staff_type">
+            <option value=":">雇用形態</option>
+            <% @staff_types.each do |i, st| %>
+              <option value="<%= i %>"><%= st %></option>
+            <% end %>
+          </select>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+  <div class="staff_list">
+    <% @staffs.each do |staff| %>
+      <div class="staff <% if staff[:slide].present? %>has_slide<% end %>"
+        data-keyword="<%= [staff[:firstname][:en], staff[:familyname][:en], staff[:familyname][:jp], staff[:firstname][:jp]].join(':') %>"
+        data-strength_finder="<%= staff[:strength_finder].join(':') %>">
+        <a href="/staff/<%= staff[:id] %>">
+          <%= staff[:firstname][:en] %> <%= staff[:familyname][:en] %>
+          <% if staff[:familyname][:jp] %>(<%= staff[:familyname][:jp] %> <%= staff[:firstname][:jp] %>)<% end %>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>

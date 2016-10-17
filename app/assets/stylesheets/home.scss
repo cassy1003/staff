@@ -1,0 +1,43 @@
+
+.desc {
+  margin: 30px 40px;
+  &_add {
+    border: solid 1px gray;
+    padding: 10px 20px;
+    p {
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+    ul {
+      list-style-type: lower-roman;
+      padding-left: 20px;
+      li {
+        margin-bottom: 5px;
+        [type=submit] {
+          background: #ff8600;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.images {
+  margin-left: 40px;
+  a {
+    text-decoration: none;
+    img {
+      width: 50px;
+      margin: 5px;
+    }
+  }
+}
+.loading {
+  animation: spin 2s linear infinite;
+  cursor: default;
+}
+@keyframes spin
+{
+  0% { transform: rotate(0deg);   opacity: 0.2; } /*0%の時は20％の透明度*/
+  50% { transform: rotate(180deg); opacity: 1.0; } /*50%の時は透明度なし*/
+  100% { transform: rotate(360deg); opacity: 0.2; } /*100%の時に20％の透明度に戻る*/
+}

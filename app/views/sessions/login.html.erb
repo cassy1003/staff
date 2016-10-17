@@ -1,0 +1,19 @@
+
+<div class="login_form">
+  <% if flash[:notice] %>
+    <div class="notice">※ accountかpasswordに誤りがあります。</div>
+  <% end %>
+  <%= form_tag('/login', :method => :post) do %>
+    <p>
+      <%= label_tag :id, "account:" %>
+      <%= text_field_tag :id %>
+    </p>
+    <p>
+      <%= label_tag :pw, "password:" %>
+      <%= password_field_tag :pw %>
+    </p>
+    <p>
+    <%= submit_tag "Login" %>
+    </p>
+  <% end %>
+</div>
