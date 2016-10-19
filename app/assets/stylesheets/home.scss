@@ -13,13 +13,34 @@
       padding-left: 20px;
       li {
         margin-bottom: 5px;
+        position: relative;
         [type=submit] {
-          background: #ff8600;
+          background-color: #EEEEEE;
           cursor: pointer;
+          &.disabled {
+            cursor: default;
+            color: #EEEEEE;
+          }
+          + i.fa {
+            position: absolute;
+            top: 6px;
+            left: 11px;
+          }
         }
       }
     }
   }
+}
+.downloaded {
+  position: absolute;
+  top: -2px;
+  left: 0px;
+  padding: 3px;
+  width: 100%;
+  text-align: center;
+  background-color: orange;
+  opacity: .8;
+  display: none;
 }
 .images {
   margin-left: 40px;

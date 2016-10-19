@@ -9,7 +9,7 @@
 </div>
 <div class="desc desc_add">
   <p> Staffの追加・編集 </p>
-  <%= form_tag('/spreadsheet', :method => :post) do %>
+  <%= form_tag('/spreadsheet', :method => :get) do %>
     <ul>
       <li><a href="https://docs.google.com/spreadsheets/d/1o53mGae2Y5fuqXlCJIMGK3uN_Nkn2cTDEKLzz8asty0/edit#gid=0">こちら</a>のスプレッドシートに記入してください。</li>
       <li>スライドは<a href="https://docs.google.com/presentation/d/1NKVXOBMYpLvXbSF9pWLWyl1OM1PenUpap7DRcAHCQcM/edit#slide=id.p">こちら</a>に追加し、urlの末尾のslide id(g*****)をスプレッドシートに記入してください。</li>
@@ -26,3 +26,8 @@
     <% end %>
   <% end %>
 </div>
+<% if flash[:notice] %>
+  <div class="downloaded">
+    反映しました。
+  </div>
+<% end %>

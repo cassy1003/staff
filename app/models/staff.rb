@@ -5,7 +5,7 @@ class Staff < ApplicationRecord
   def self.download
     session = GoogleDrive::Session.from_service_account_key('google_auth.json')
     ws = session.spreadsheet_by_key("1o53mGae2Y5fuqXlCJIMGK3uN_Nkn2cTDEKLzz8asty0").worksheets[0]
-    CSV.open("lib/assets/staffs_.csv", "wb") do |csv|
+    CSV.open("lib/assets/staffs.csv", "wb") do |csv|
       1.upto(ws.num_rows) do |row|
         items = []
         1.upto(ws.num_cols) do |col|
@@ -17,7 +17,7 @@ class Staff < ApplicationRecord
   end
 
   def self.all
-    CSV.foreach('lib/assets/staffs_.csv', headers: true).map do |staff|
+    CSV.foreach('lib/assets/staffs.csv', headers: true).map do |staff|
       {
         id: staff['staff_id'],
         firstname: {

@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
 
   def download_spreadsheet
     Staff.download
-    redirect_to controller: 'home', action: 'index'
+    redirect_to({controller: 'home', action: 'index'}, notice: 'downloaded')
   end
 end
